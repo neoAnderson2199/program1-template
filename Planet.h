@@ -3,7 +3,7 @@
 
 class Planet{
 private:
-	int id;
+	long int id;
 	int distance;
 	int pos;
 	int type;
