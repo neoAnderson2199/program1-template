@@ -5,7 +5,6 @@
 class Star{
 private:
 	int current_planets;
-	int next_id;
 public:
 	Planet** planets;
 	Star();

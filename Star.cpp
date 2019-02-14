@@ -16,7 +16,7 @@ Star::~Star(){
 	planets = NULL;
 }
 
-int Star::addPlanet(){
+long Star::addPlanet(){
 	Planet** temp = new Planet*[current_planets + 1];
 	for(int i = 0; i < current_planets; i ++){
 		temp[i] = planets[i];
@@ -24,13 +24,12 @@ int Star::addPlanet(){
 	delete[] planets;
 	planets = temp;
 	temp = NULL;
-	planets[current_planets] = new Planet(rand()%3001, next_id);
-	next_id ++;
+	planets[current_planets] = new Planet(rand()%3001);
 	current_planets ++;
 	return (*planets[current_planets-1]).getID();
 }
 
-bool Star::removePlanet(int id){
+bool Star::removePlanet(long id){
 	bool retVal = false;
 	if(planets == NULL) return retVal;
 	int p = 0;
@@ -57,7 +56,7 @@ bool Star::removePlanet(int id){
 	return retVal;
 }
 
-Planet* Star::getPlanet(int id){
+Planet* Star::getPlanet(long id){
 	if(planets == NULL) return NULL;
 	for(int i = 0; i < current_planets; i++){
 		if((*planets[i]).getID() == id) return planets[i];
