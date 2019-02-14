@@ -6,10 +6,11 @@ Vector::Vector(int elements) {
 }
 
 Vector::~Vector() {
-	delete planets;
+	delete[] planets;
 }
 
-void insert(int index, Planet * p);
+void insert(int index, Planet * p) {
+	
 	
 
 
