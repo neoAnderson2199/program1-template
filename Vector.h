@@ -4,7 +4,7 @@
 class Vector {
 	public:
 		Planet ** planets;
-		Vector();
+		Vector(int);
 		~Vector();
 		void insert(int, Planet *);
 		Planet * read(int);
