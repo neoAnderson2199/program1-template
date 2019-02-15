@@ -21,9 +21,12 @@ List::List(){
 
 List::~List(){
 	Node* temp = head;
+	Node* temp2 = head;
 	while(temp != NULL){
 		delete temp->data;
-		temp = temp->next;
+		temp2 = temp->next;
+		delete temp;
+		temp = temp2;
 	}
 }
 

@@ -153,7 +153,7 @@ int main(){
     delete list;
     list = NULL;
     cerr << "\n\t\tTest #13 Passed...\n\n";
-
+/*
     cerr << "\n\t=========Test #14: Star Classes ===========\n\n";
     Starlist * sl = new Starlist();
     assert(sl->getCurrentNumPlanets() == 0);
@@ -207,10 +207,10 @@ int main(){
 
     struct timeval start, stop;
     float profile_time;
-
+*/
     /************************ Starvector Performance Test *********************/
     /** Testing performance of insert **/
-    gettimeofday(&start, NULL);
+/*    gettimeofday(&start, NULL);
     for(int i = 0; i < 200; i++){
         id_list[i] = sv->addPlanet();
     }
@@ -219,8 +219,8 @@ int main(){
     profile_time = ((stop.tv_sec* 1000000) + stop.tv_usec) - ((start.tv_sec* 1000000) + start.tv_usec);
     printf("\tCompleted Starvector insert profile time = %lf\n", profile_time);
 
-    /** Testing performance of read **/
-    gettimeofday(&start, NULL);
+ */   /** Testing performance of read **/
+ /*   gettimeofday(&start, NULL);
     for(int i = 0; i < 200; i++){
         sv->getPlanet(id_list[i]);
     }
@@ -228,8 +228,8 @@ int main(){
 
     profile_time = ((stop.tv_sec* 1000000) + stop.tv_usec) - ((start.tv_sec* 1000000) + start.tv_usec);
     printf("\tCompleted Starvector read profile time = %lf\n", profile_time);
-    /** Testing performance of remove **/
-    gettimeofday(&start, NULL);
+ */   /** Testing performance of remove **/
+ /*   gettimeofday(&start, NULL);
     for(int i = 0; i < 200; i+=5){
         sv->removePlanet(id_list[i]);
     }
@@ -239,9 +239,9 @@ int main(){
     profile_time = ((stop.tv_sec* 1000000) + stop.tv_usec) - ((start.tv_sec* 1000000) + start.tv_usec);
     printf("\tCompleted Starvector remove profile time = %lf\n", profile_time);
 
-    /************************ Starlist Performance Test *********************/
+ */   /************************ Starlist Performance Test *********************/
     /** Testing performance of insert **/
-    gettimeofday(&start, NULL);
+ /*   gettimeofday(&start, NULL);
     for(int i = 0; i < 200; i++){
         id_list[i] = sl->addPlanet();
     }
@@ -249,9 +249,9 @@ int main(){
 
     profile_time = ((stop.tv_sec* 1000000) + stop.tv_usec) - ((start.tv_sec* 1000000) + start.tv_usec);
     printf("\tCompleted Starlist insert profile time = %lf\n", profile_time);
-
+*/
     /** Testing performance of read **/
-    gettimeofday(&start, NULL);
+/*    gettimeofday(&start, NULL);
     for(int i = 0; i < 200; i++){
         sl->getPlanet(id_list[i]);
     }
@@ -259,8 +259,8 @@ int main(){
 
     profile_time = ((stop.tv_sec* 1000000) + stop.tv_usec) - ((start.tv_sec* 1000000) + start.tv_usec);
     printf("\tCompleted Starlist read profile time = %lf\n", profile_time);
-    /** Testing performance of remove **/
-    gettimeofday(&start, NULL);
+ */   /** Testing performance of remove **/
+ /*   gettimeofday(&start, NULL);
     for(int i = 0; i < 200; i+=5){
         sl->removePlanet(id_list[i]);
     }
@@ -270,6 +270,6 @@ int main(){
     profile_time = ((stop.tv_sec* 1000000) + stop.tv_usec) - ((start.tv_sec* 1000000) + start.tv_usec);
     printf("\tCompleted Starlist remove profile time = %lf\n", profile_time);
 
-    cerr << "\n\t========= Don't forget to submit your hash and check your code with Valgrind! ===========\n\n";
+*/    cerr << "\n\t========= Don't forget to submit your hash and check your code with Valgrind! ===========\n\n";
     return 0;
 }
