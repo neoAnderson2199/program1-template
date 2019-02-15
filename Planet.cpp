@@ -2,7 +2,7 @@
 #include <iostream>
 
 Planet::Planet(int dis){
-	id = &this;
+	id = (long)this;
 	distance = dis;
 	char types[] = {'h', 'r', 'g'};
 	type = types[rand()%3];

@@ -3,7 +3,6 @@
 
 Star::Star(){
 	current_planets = 0;
-	next_id = 0;
 	planets = NULL;
 }
 

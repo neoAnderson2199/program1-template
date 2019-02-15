@@ -9,9 +9,9 @@ public:
 	Planet** planets;
 	Star();
 	~Star();
-	int addPlanet();
-	bool removePlanet(int);
-	Planet* getPlanet(int);
+	long addPlanet();
+	bool removePlanet(long);
+	Planet* getPlanet(long);
 	void orbit();
 	void printStarInfo();
 	int getCurrentNumPlanets(){return current_planets;};

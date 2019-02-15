@@ -1,18 +1,20 @@
+#include "Planet.h"
 #ifndef HEADER_HL
 #define HEADER_HL
 
 class Node{
 public:
 	Planet* data;
-	Node* next, prev;
+	Node* next;
+	Node* prev;
 	Node();
 	Node(Planet* d);
 };
 
 class List{
 public:
-	Node* head, tail;
-	int size;
+	Node* head, *tail;
+	unsigned s;
 	List();
 	~List();
 	void insert(int index, Planet *p);

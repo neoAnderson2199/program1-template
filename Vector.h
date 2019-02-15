@@ -1,9 +1,12 @@
+#include "Planet.h"
 #ifndef HEADERH_NB
 #define HEADERH_NB
 
 class Vector {
 	public:
 		Planet ** planets;
+		unsigned s;
+		Vector();
 		Vector(int);
 		~Vector();
 		void insert(int, Planet *);
