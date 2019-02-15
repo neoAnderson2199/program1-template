@@ -12,9 +12,10 @@ public:
 };
 
 class List{
+private:
+	unsigned s;
 public:
 	Node* head, *tail;
-	unsigned s;
 	List();
 	~List();
 	void insert(int index, Planet *p);

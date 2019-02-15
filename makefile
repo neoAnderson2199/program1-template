@@ -23,7 +23,7 @@ run:all
 	./$(P)
 
 clean:
-	rm -rf $(P) $(P).o Star.o Planet.o
+	rm -rf $(P) $(P).o Star.o Planet.o List.o Vector.o
 
 memcheck:all
 	valgrind ./$(P)

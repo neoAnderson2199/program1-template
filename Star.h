@@ -1,20 +1,34 @@
-#include "Planet.h"
+#include "List.h"
+#include "Vector.h"
 #ifndef HEADER_S
 #define HEADER_S
 
-class Star{
+class Starlist{
 private:
-	int current_planets;
+	List* list;
 public:
-	Planet** planets;
-	Star();
-	~Star();
+	Starlist();
+	~Starlist();
 	long addPlanet();
 	bool removePlanet(long);
 	Planet* getPlanet(long);
 	void orbit();
 	void printStarInfo();
-	int getCurrentNumPlanets(){return current_planets;};
+	unsigned int getCurrentNumPlanets();
+};
+
+class Starvector{
+private:
+	Vector* vector;
+public:
+	Starvector();
+	~Starvector();
+	long addPlanet();
+	bool removePlanet(long);
+	Planet* getPlanet(long);
+	void orbit();
+	void printStarInfo();
+	unsigned int getCurrentNumPlanets();
 };
 
 #endif

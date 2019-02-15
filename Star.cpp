@@ -1,80 +1,102 @@
 #include "Star.h"
 #include <iostream>
 
-Star::Star(){
-	current_planets = 0;
-	planets = NULL;
+Starlist::Starlist(){
+	list = new List();
 }
 
-Star::~Star(){
-	for(int i = 0; i < current_planets; i ++){
-		delete planets[i];
-		planets[i] = NULL;
-	}
-	delete[] planets;
-	planets = NULL;
+Starlist::~Starlist(){
+	delete list;
 }
 
-long Star::addPlanet(){
-	Planet** temp = new Planet*[current_planets + 1];
-	for(int i = 0; i < current_planets; i ++){
-		temp[i] = planets[i];
-	}
-	delete[] planets;
-	planets = temp;
-	temp = NULL;
-	planets[current_planets] = new Planet(rand()%3001);
-	current_planets ++;
-	return (*planets[current_planets-1]).getID();
+long Starlist::addPlanet(){
+	Planet* temp = new Planet(rand()%3001);
+	list->insert(list->size(), temp);
+	return temp->getID();
 }
 
-bool Star::removePlanet(long id){
-	bool retVal = false;
-	if(planets == NULL) return retVal;
-	int p = 0;
-	for(int i = 0; i < current_planets; i ++){
-		if((*planets[i]).getID() == id){
-			delete planets[i]; 
-			p = i;
-			retVal = true;
-		}
+bool Starlist::removePlanet(long id){
+	int temp = -1;
+	for(unsigned i = 0; i < list->size(); i++){
+		if((list->read(i))->getID() == id) temp = i;
 	}
-	if(retVal){
-		Planet** temp = new Planet*[current_planets-1];
-		for(int i = 0; i < p; i ++){
-			temp[i] = planets[i];
-		}
-		for(int i = p+1; i < current_planets; i ++){
-			temp[i-1] = planets[i];
-		}
-		delete[] planets;
-		planets = temp;
-		temp = NULL;
-		current_planets --;
-	}
-	return retVal;
+	return list->remove(temp);
 }
 
-Planet* Star::getPlanet(long id){
-	if(planets == NULL) return NULL;
-	for(int i = 0; i < current_planets; i++){
-		if((*planets[i]).getID() == id) return planets[i];
+Planet* Starlist::getPlanet(long id){
+	int temp = -1;
+	for(unsigned i = 0; i < list->size(); i++){
+		if((list->read(i))->getID() == id) temp = i;
 	}
-	return NULL;
+	return list->read(temp);
 }
 
-void Star::orbit(){
-	for(int i = 0; i < this->current_planets; i++){
-		(*planets[i]).orbit();
+void Starlist::orbit(){
+	for(unsigned i = 0; i < list->size(); i++){
+		(list->read(i))->orbit();
 	}
 }
 
-void Star::printStarInfo(){
-	std::cout<< "The star has " << current_planets << " planets." << std::endl;
+void Starlist::printStarInfo(){
+	std::cout<< "The star has " << list->size() << " planets." << std::endl;
 	std::cout<< "Planets:" << std::endl;
-	for(int i = 0; i < current_planets; i++){
-		std::cout<< "Planet " << (*planets[i]).getType() << (*planets[i]).getID() << " is " << (*planets[i]).getDistance() <<" miles away at position " << (*planets[i]).getPos() << " around the star." << std::endl;
+	for(unsigned i = 0; i < list->size(); i++){
+		Planet* temp = list->read(i);
+		std::cout<< "Planet " << temp->getType() << temp->getID() << " is " << temp->getDistance() <<" miles away at position " << temp->getPos() << " around the star." << std::endl;
 	}
+}
+
+unsigned int Starlist::getCurrentNumPlanets(){
+	return list->size();
+}
+
+Starvector::Starvector(){
+	vector = new Vector();
+}
+
+Starvector::~Starvector(){
+	delete vector;
+}
+
+long Starvector::addPlanet(){
+	Planet* temp = new Planet(rand()%3001);
+	vector->insert(vector->size(), temp);
+	return temp->getID();
+}
+
+bool Starvector::removePlanet(long id){
+	int temp = -1;
+	for(unsigned i = 0; i < vector->size(); i++){
+		if((vector->read(i))->getID() == id) temp = i;
+	}
+	return vector->remove(temp);
+}
+
+Planet* Starvector::getPlanet(long id){
+	int temp = -1;
+	for(unsigned i = 0; i < vector->size(); i++){
+		if((vector->read(i))->getID() == id) temp = i;
+	}
+	return vector->read(temp);
+}
+
+void Starvector::orbit(){
+	for(unsigned i = 0; i < vector->size(); i++){
+		(vector->read(i))->orbit();
+	}
+}
+
+void Starvector::printStarInfo(){
+	std::cout<< "The star has " << vector->size() << " planets." << std::endl;
+	std::cout<< "Planets:" << std::endl;
+	for(unsigned i = 0; i < vector->size(); i++){
+		Planet* temp = vector->read(i);
+		std::cout<< "Planet " << temp->getType() << temp->getID() << " is " << temp->getDistance() <<" miles away at position " << temp->getPos() << " around the star." << std::endl;
+	}
+}
+
+unsigned int Starvector::getCurrentNumPlanets(){
+	return vector->size();
 }
 
 	
